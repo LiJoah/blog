@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "module": "es2015",
+    "target": "es5",
+    "outDir": "./dist/",
+    // "baseUrl": "./src/",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    // not sure why this project needs to specify types below
+    "types": [
+      "react-router",
+      "react",
+      "react-dom"
+    ]
+  },
+  "compileOnSave": false,
+  "exclude": [
+    "node_modules"
+  ]
+}
