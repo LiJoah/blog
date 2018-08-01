@@ -14,12 +14,14 @@
     "outDir": "./dist/",
     // "baseUrl": "./src/",
     "moduleResolution": "node",
-    "jsx": "preserve",
+    "jsx": "react",
     // not sure why this project needs to specify types below
     "types": [
-      "react-router",
+      "react-router-dom",
       "react",
-      "react-dom"
+      "react-dom",
+      "react-loadable",
+      "axios"
     ]
   },
   "compileOnSave": false,

@@ -1,6 +1,7 @@
 {
   "search.exclude": {
     "**/node_modules": true,
+    "**/dist": true,
     "**/bower_components": true
   },
   "files.exclude": {
