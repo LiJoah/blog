@@ -9,7 +9,7 @@
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "module": "esnext",
+    "module": "commonjs",
     "target": "es5",
     "outDir": "./dist/",
     "baseUrl": "./src/",
@@ -22,19 +22,11 @@
       "@helpers/*": ["./helpers/*"]
     },
     "importHelpers": true,
-    // "skipLibCheck": true,
-    // not sure why this project needs to specify types below
-    "types": [
-      "react-router-dom",
-      "react",
-      "react-dom",
-      "react-loadable",
-      "axios"
-    ]
   },
   "sourceMap": true,
   "compileOnSave": false,
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "typeRoots": ["node", "node_modules/@types", "./typings"]
 }

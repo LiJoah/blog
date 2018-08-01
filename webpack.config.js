@@ -119,9 +119,9 @@ module.exports = {
       // both options are optional
       filename: "static/css/[name].[hash].css",
       chunkFilename: "static/css/[name].[id].[hash].css"
-    })
+    }),
     // new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NamedModulesPlugin() // 执行热替换时打印模块名字
+    new webpack.NamedModulesPlugin() // 执行热替换时打印模块名字
   ],
 
   optimization: {
