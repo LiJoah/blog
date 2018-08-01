@@ -8,7 +8,9 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
   mode: process.env.NODE_ENV === "prod" ? "production" : "development",
-  entry: ["babel-polyfill", path.resolve(__dirname, "src/main.tsx")],
+  entry: {
+    main: ["babel-polyfill", path.resolve(__dirname, "src/main.tsx")]
+  },
   output: {
     path: path.resolve(__dirname, "dist/"),
     publicPath: path.resolve(__dirname, "dist"),
@@ -26,6 +28,9 @@ module.exports = {
 
   resolve: {
     modules: [path.resolve(__dirname, "src"), "node_modules"],
+    alias: {
+      "@base": path.resolve(__dirname, "src/base")
+    },
     extensions: [".ts", ".tsx", ".js"]
   },
 
@@ -94,8 +99,9 @@ module.exports = {
   },
 
   plugins: [
+    new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
-      // filename: path.resolve(__dirname, "index.html"),
+      filename: path.resolve(__dirname, "dist/index.html"),
       template: path.resolve(__dirname, "index.html"),
       title: "blog",
       inject: true,
@@ -108,15 +114,12 @@ module.exports = {
       },
       chunksSortMode: "dependency"
     }),
-    new CleanWebpackPlugin(["dist"]),
-
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: "static/css/[name].[hash].css",
       chunkFilename: "static/css/[name].[id].[hash].css"
     })
-
     // new webpack.HotModuleReplacementPlugin(),
     // new webpack.NamedModulesPlugin() // 执行热替换时打印模块名字
   ],
