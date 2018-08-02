@@ -1,4 +1,4 @@
-import "./index.less";
+import * as styles from "./index.less";
 import * as React from "react";
 import { hot } from "react-hot-loader";
 import Loadable from "react-loadable";
@@ -30,6 +30,8 @@ const Login = Loadable({
     return loaded.Login;
   }
 });
+
+console.log(styles);
 
 export interface Props {}
 
