@@ -1,7 +1,8 @@
 import "./index.less";
 import * as React from "react";
+import * as Loadable from "react-loadable";
 import { hot } from "react-hot-loader";
-import Loadable from "react-loadable";
+
 import {
   // Switch,
   Route
@@ -10,16 +11,15 @@ import {
 
 import { Loading } from "../loading/loading";
 
-console.log(Loadable);
-
 const Home = Loadable({
   loader: () => {
     return import("../home/home");
   },
-  loading: Loading,
+  loading: (props: any) => Loading(props),
   render: (loaded, props) => {
     console.log(props);
-    return loaded.Home;
+    console.log(loaded);
+    return <loaded.Home {...props} />;
   }
 });
 
@@ -27,18 +27,18 @@ const Login = Loadable({
   loader: () => {
     return import("../login/login");
   },
-  loading: Loading,
+  loading: (props: any) => Loading(props),
   render: (loaded, props) => {
     console.log(props);
-    return loaded.Login;
+    return <loaded.Login {...props} />;
   }
 });
 
 export interface Props {}
 
-const AppWrapper = (props: any) => {
-  return <div className="hello">{props.children}</div>;
-};
+const AppWrapper = (props: any) => (
+  <div className="hello">{props.children}</div>
+);
 
 // // 权限控制
 // const PrivateRoute = ({ component: Component, ...rest }) => (

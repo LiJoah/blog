@@ -1,6 +1,6 @@
 import axios from "axios";
 import utils from "helpers/utils";
-import { storage } from "../helpers/storage";
+// import { storage } from "../helpers/storage";
 import { configs } from "../config";
 
 type APIQueryArgCollection = ApiTypes.APIBodyArgCollection;
