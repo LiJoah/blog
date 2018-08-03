@@ -61,6 +61,7 @@ class Index extends React.Component<Props, object> {
   render() {
     return (
       <AppWrapper>
+        <div className={styles.hello}></div>
         <Route exact path="/login" component={Login} />
         <Route path="/" component={Home} />
       </AppWrapper>

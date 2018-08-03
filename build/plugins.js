@@ -7,6 +7,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const constants = require("./const");
 const { assetsPath } = require("./utils");
 
+
 const basePlugins = [
   new webpack.WatchIgnorePlugin([/less\.d\.ts$/]),
   new CleanWebpackPlugin([resolve(__dirname, "../dist/")], {
