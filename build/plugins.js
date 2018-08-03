@@ -5,6 +5,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const constants = require("./const");
+const { CheckerPlugin } = require("awesome-typescript-loader");
+
+const basePlugins = [
+  new CheckerPlugin(),
+  new webpack.WatchIgnorePlugin([/\.less\.d\.ts$/])
+];
 
 const devPlugins = [
   new HtmlWebpackPlugin({
@@ -52,5 +58,5 @@ if (config.bundleAnalyzerReport) {
 
 module.exports =
   constants.NODE_ENV === "prod"
-    ? plugins.concat(prodPlugins)
-    : plugins.concat(devPlugins);
+    ? plugins.concat(prodPlugins, basePlugins)
+    : plugins.concat(devPlugins, basePlugins);

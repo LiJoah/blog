@@ -7,7 +7,7 @@ const jsRules = {
     {
       loader: "awesome-typescript-loader",
       options: {
-        transpileOnly: true,
+        // transpileOnly: true,
         useCache: true,
         cacheDirectory: resolve(__dirname, "../.cache-loader"),
         useBabel: true,

@@ -46,7 +46,9 @@ module.exports = {
 
   watch: true,
   target: "web",
-  // stats: { color: true },
+  stats: {
+    errors: true
+  },
 
   devServer: {
     open: true,

@@ -1,15 +1,16 @@
-import * as styles from "./index.less";
+import "./index.less";
 import * as React from "react";
 import { hot } from "react-hot-loader";
 import Loadable from "react-loadable";
 import {
-  HashRouter as Router,
-  Switch,
+  // Switch,
   Route
   // Redirect
 } from "react-router-dom";
 
 import { Loading } from "../loading/loading";
+
+console.log(Loadable);
 
 const Home = Loadable({
   loader: () => {
@@ -17,6 +18,7 @@ const Home = Loadable({
   },
   loading: Loading,
   render: (loaded, props) => {
+    console.log(props);
     return loaded.Home;
   }
 });
@@ -27,16 +29,15 @@ const Login = Loadable({
   },
   loading: Loading,
   render: (loaded, props) => {
+    console.log(props);
     return loaded.Login;
   }
 });
 
-console.log(styles);
-
 export interface Props {}
 
 const AppWrapper = (props: any) => {
-  return <div className="app-wrapper">{props.children}</div>;
+  return <div className="hello">{props.children}</div>;
 };
 
 // // 权限控制
@@ -62,12 +63,8 @@ class Index extends React.Component<Props, object> {
   render() {
     return (
       <AppWrapper>
-        <Router>
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <Route path="/" component={Home} />
-          </Switch>
-        </Router>
+        <Route exact path="/login" component={Login} />
+        <Route path="/" component={Home} />
       </AppWrapper>
     );
   }
