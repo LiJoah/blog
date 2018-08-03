@@ -9,7 +9,7 @@ const { CheckerPlugin } = require("awesome-typescript-loader");
 
 const basePlugins = [
   new CheckerPlugin(),
-  new webpack.WatchIgnorePlugin([/\.less\.d\.ts$/])
+  new webpack.WatchIgnorePlugin([/ess\.d\.ts$/])
 ];
 
 const devPlugins = [
@@ -20,7 +20,6 @@ const devPlugins = [
 ];
 
 const prodPlugins = [
-  new webpack.WatchIgnorePlugin([/\.less\.d\.ts$/]),
   new HtmlWebpackPlugin({
     filename: resolve(__dirname, "dist/index.html"),
     template: resolve(__dirname, "index.html"),

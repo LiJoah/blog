@@ -31,7 +31,9 @@ module.exports = {
   resolve: {
     modules: [resolve(__dirname, "src"), "node_modules"],
     alias: {
-      "@base": resolve(__dirname, "src/base")
+      "@base": resolve(__dirname, "src/base"),
+      "@helpers": resolve(__dirname, "src/helpers"),
+      "@store": resolve(__dirname, "src/store")
     },
     extensions: [".ts", ".tsx", ".js"]
   },
