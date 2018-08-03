@@ -18,11 +18,11 @@ module.exports = {
     publicPath: config.assetsPublicPath,
     filename:
       constants.NODE_ENV === "prod"
-        ? assetsPath("js/[name].[chunkhash:8].js")
+        ? assetsPath("js/[name].[hash:8].js")
         : "[name].js",
     chunkFilename:
       constants.NODE_ENV === "prod"
-        ? assetsPath("js/[name].[chunkhash:8].chunk.js")
+        ? assetsPath("js/[name].[id].[chunkhash:8].chunk.js")
         : "[name].js"
   },
 
@@ -53,7 +53,7 @@ module.exports = {
   },
 
   devServer: {
-    open: true,
+    // open: true,
     contentBase: join(__dirname, "dist"),
     compress: true,
     port: 9000,

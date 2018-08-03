@@ -5,11 +5,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const constants = require("./const");
-const { CheckerPlugin } = require("awesome-typescript-loader");
+const { assetsPath } = require("./utils");
 
 const basePlugins = [
-  new CheckerPlugin(),
-  new webpack.WatchIgnorePlugin([/less\.d\.ts$/])
+  new webpack.WatchIgnorePlugin([/less\.d\.ts$/]),
+  new CleanWebpackPlugin([resolve(__dirname, "../dist/")], {
+    root: resolve(__dirname, "./../"),
+    verbose: true,
+    dry: false
+  }),
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NamedModulesPlugin() // 执行热替换时打印模块名字
 ];
 
 const devPlugins = [
@@ -21,8 +27,8 @@ const devPlugins = [
 
 const prodPlugins = [
   new HtmlWebpackPlugin({
-    filename: resolve(__dirname, "dist/index.html"),
-    template: resolve(__dirname, "index.html"),
+    filename: resolve(__dirname, "../dist/index.html"),
+    template: resolve(__dirname, "../index.html"),
     title: "blog",
     inject: true,
     minify: {
@@ -38,15 +44,9 @@ const prodPlugins = [
   new MiniCssExtractPlugin({
     // Options similar to the same options in webpackOptions.output
     // both options are optional
-    filename: "static/css/[name].[hash].css",
-    chunkFilename: "static/css/[name].[id].[hash].css"
+    filename: assetsPath("css/[name].[hash].css"),
+    chunkFilename: assetsPath("css/[name].[id].[hash].css")
   })
-];
-
-const plugins = [
-  new CleanWebpackPlugin(["dist"]),
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.NamedModulesPlugin() // 执行热替换时打印模块名字
 ];
 
 //  用来分析打包模块的大小和体积
@@ -55,7 +55,6 @@ if (config.bundleAnalyzerReport) {
   prodPlugins.push(new BundleAnalyzerPlugin());
 }
 
-module.exports =
-  constants.NODE_ENV === "prod"
-    ? plugins.concat(prodPlugins, basePlugins)
-    : plugins.concat(devPlugins, basePlugins);
+module.exports = basePlugins.concat(
+  constants.NODE_ENV === "prod" ? prodPlugins : devPlugins
+);

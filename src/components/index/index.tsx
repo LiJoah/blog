@@ -1,4 +1,4 @@
-import "./index.less";
+import * as styles from "./index.less";
 import * as React from "react";
 import * as Loadable from "react-loadable";
 import { hot } from "react-hot-loader";
@@ -8,12 +8,13 @@ import {
   Route
   // Redirect
 } from "react-router-dom";
+console.log(styles);
 
 import { Loading } from "../loading/loading";
 
 const Home = Loadable({
   loader: () => {
-    return import("../home/home");
+    return import(/* webpackChunkName: "home" */ "../home/home");
   },
   loading: (props: any) => Loading(props),
   render: (loaded, props) => {
@@ -23,7 +24,7 @@ const Home = Loadable({
 
 const Login = Loadable({
   loader: () => {
-    return import("../login/login");
+    return import(/* webpackChunkName: "home" */ "../login/login");
   },
   loading: (props: any) => Loading(props),
   render: (loaded, props) => {

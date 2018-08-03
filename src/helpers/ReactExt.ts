@@ -1,5 +1,5 @@
 import * as React from "react";
-import { message, notification } from "antd";
+// import { message, notification } from "antd";
 import { api } from "./api";
 import { EventEmitter } from "./EventEmitter";
 
@@ -9,12 +9,12 @@ import { EventEmitter } from "./EventEmitter";
  */
 export class ReactComponentExt<P = {}, S = {}> extends React.Component<P, S> {
   readonly api = api;
-  readonly $message = message;
-  readonly $notification = notification;
+  // readonly $message = message;
+  // readonly $notification = notification;
 }
 
 export abstract class StoreExt<P> extends EventEmitter<P> {
   readonly api = api;
-  readonly $message = message;
-  readonly $notification = notification;
+  // readonly $message = message;
+  // readonly $notification = notification;
 }
