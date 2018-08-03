@@ -1,5 +1,5 @@
 import axios from "axios";
-import utils from "helpers/utils";
+import utils from "./utils";
 // import { storage } from "../helpers/storage";
 import { configs } from "../config";
 

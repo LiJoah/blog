@@ -17,8 +17,6 @@ const Home = Loadable({
   },
   loading: (props: any) => Loading(props),
   render: (loaded, props) => {
-    console.log(props);
-    console.log(loaded);
     return <loaded.Home {...props} />;
   }
 });
@@ -29,7 +27,6 @@ const Login = Loadable({
   },
   loading: (props: any) => Loading(props),
   render: (loaded, props) => {
-    console.log(props);
     return <loaded.Login {...props} />;
   }
 });

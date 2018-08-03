@@ -1,4 +1,4 @@
-import { HttpProxy } from "./httpProxy";
+import { HttpProxy } from "./HttpProxy";
 // import { utils } from "../helpers/utils";
 
 type APIQueryArgCollection = ApiTypes.APIQueryArgCollection;
