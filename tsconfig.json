@@ -23,11 +23,11 @@
       "@store/*": ["./store/*"]
     },
     "importHelpers": true,
+    "skipLibCheck": true,
+    "typeRoots": ["node", "node_modules/@types", "./typings"]
   },
-  "sourceMap": true,
-  "compileOnSave": false,
-  "exclude": [
-    "node_modules"
-  ],
-  "typeRoots": ["node", "node_modules/@types", "./typings"]
+  "compileOnSave": false
+  // "exclude": [
+  //   "node_modules"
+  // ],
 }

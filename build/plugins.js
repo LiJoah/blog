@@ -9,7 +9,7 @@ const { CheckerPlugin } = require("awesome-typescript-loader");
 
 const basePlugins = [
   new CheckerPlugin(),
-  new webpack.WatchIgnorePlugin([/ess\.d\.ts$/])
+  new webpack.WatchIgnorePlugin([/less\.d\.ts$/])
 ];
 
 const devPlugins = [
