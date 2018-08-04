@@ -46,14 +46,14 @@ module.exports = {
 
   optimization,
 
-  watch: true,
+  watch: constants.NODE_ENV === "prod" ? false : true,
   target: "web",
   stats: {
     errors: true
   },
 
   devServer: {
-    // open: true,
+    open: true,
     contentBase: join(__dirname, "dist"),
     compress: true,
     port: 9000,

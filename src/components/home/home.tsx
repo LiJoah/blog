@@ -1,11 +1,11 @@
 import * as React from "react";
 import { ReactComponentExt } from "@helpers/ReactExt";
 import globalStore from "@store/globalStore";
-// import { DatePicker, Button } from 'antd';
+import { DatePicker, Button } from 'antd';
 import * as styles from "./home.less";
 
-interface HomeProps {}
-interface HomeStates {}
+interface HomeProps { }
+interface HomeStates { }
 
 export class Home extends ReactComponentExt<HomeProps, HomeStates> {
   constructor(props: HomeProps) {
@@ -21,8 +21,8 @@ export class Home extends ReactComponentExt<HomeProps, HomeStates> {
   render() {
     return (
       <div>
-        {/* <DatePicker /> */}
-        {/* <Button type="primary">Primary</Button> */}
+        <DatePicker />
+        <Button type="primary">Primary</Button>
         <button className={styles.hello} onClick={this.clickHandler}>
           click me
         </button>

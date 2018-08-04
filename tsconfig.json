@@ -9,7 +9,7 @@
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
     "outDir": "./dist/",
     "baseUrl": "./src/",

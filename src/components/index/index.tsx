@@ -24,7 +24,7 @@ const Home = Loadable({
 
 const Login = Loadable({
   loader: () => {
-    return import(/* webpackChunkName: "home" */ "../login/login");
+    return import(/* webpackChunkName: "login" */ "../login/login");
   },
   loading: (props: any) => Loading(props),
   render: (loaded, props) => {

@@ -21,7 +21,7 @@ const typingsForCssModulesLoader = {
     modules: true,
     namedExport: true,
     camelCase: true,
-    // localIdentName: "[name]"
+    localIdentName: "[name]"
   }
 };
 
@@ -35,7 +35,6 @@ const typingsForCssModulesLoader = {
 
 const styleRules = {
   test: /\.less$/,
-  include: [resolve(__dirname, '../src')],
   use: [
     constants.NODE_ENV === "prod"
       ? MiniCssExtractPlugin.loader
