@@ -22,9 +22,9 @@ const jsRules = {
         getCustomTransformers: () => ({
           before: [
             tsImportPluginFactory({
-              libraryDirectory: "es",
-              libraryName: "antd",
-              style: true
+              libraryDirectory: 'lib',
+              libraryName: 'antd',
+              style: true,
             })
           ]
         })

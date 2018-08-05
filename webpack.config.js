@@ -39,7 +39,7 @@ module.exports = {
   },
 
   module: {
-    rules: [jsRules, styleRules, ...fileRules]
+    rules: [jsRules, ...styleRules, ...fileRules]
   },
 
   plugins,
@@ -53,7 +53,7 @@ module.exports = {
   },
 
   devServer: {
-    open: true,
+    // open: true,
     contentBase: join(__dirname, "dist"),
     compress: true,
     port: 9000,

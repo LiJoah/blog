@@ -25,26 +25,41 @@ const typingsForCssModulesLoader = {
   }
 };
 
-// const cacheLoader = {
-//   loader: "cache-loader",
-//   options: {
-//     // provide a cache directory where cache items should be stored
-//     cacheDirectory: resolve(__dirname, "../.cache-loader")
-//   }
-// };
-
-const styleRules = {
-  test: /\.less$/,
-  use: [
-    constants.NODE_ENV === "prod"
-      ? MiniCssExtractPlugin.loader
-      : "style-loader",
-    typingsForCssModulesLoader,
-    // cacheLoader,
-    // "css-loader",
-    "postcss-loader",
-    lessLoader
-  ]
+const cacheLoader = {
+  loader: "cache-loader",
+  options: {
+    // provide a cache directory where cache items should be stored
+    cacheDirectory: resolve(__dirname, "../.cache-loader")
+  }
 };
+
+
+
+const styleRules = [
+  {
+    test: /\.css$/,
+    include: [resolve(__dirname, '../node_modules')],
+    use: [
+      constants.NODE_ENV === "prod" ? MiniCssExtractPlugin.loader : 'style-loader',
+      cacheLoader,
+      'css-loader',
+      'postcss-loader'
+    ]
+  },
+
+  {
+    test: /\.less$/,
+    use: [
+      constants.NODE_ENV === "prod"
+        ? MiniCssExtractPlugin.loader
+        : "style-loader",
+      typingsForCssModulesLoader,
+      // cacheLoader,
+      // "css-loader",
+      "postcss-loader",
+      lessLoader
+    ]
+  }
+];
 
 module.exports = styleRules;

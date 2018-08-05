@@ -10,7 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "module": "esnext",
-    "target": "es5",
+    "target": "esnext",
     "outDir": "./dist/",
     "baseUrl": "./src/",
     "rootDirs": ["./src"],
